@@ -13,8 +13,6 @@
 
 #include <iostream>
 
-// TODO Add include guard
-
 class HashTable {
     public:
         HashTable();
@@ -40,4 +38,5 @@ class HashTable {
 
         void expand();
 };
+
 #endif

@@ -84,7 +84,6 @@ HashTable::~HashTable()
  *           value: The value to be added
  * @Returns: None
  * @Notes:   If the key's already present in the table, its value is updated
- *           Will throw an exception if the given key isn't found in the table
  */ 
 void HashTable::insert(std::string key, std::string value)
 {
@@ -126,13 +125,15 @@ void HashTable::insert(std::string key, std::string value)
  * @Notes:   Will throw an exception if the given key isn't found in the table 
  */ 
 std::string HashTable::search(std::string key)
-{
+{   std::cerr << "In Search\n";
     std::hash<std::string> string_hash;
+    std::cerr << "After hash\n";
     int hash_index = string_hash(key) % table_size;
     
     ChainNode *curr = table[hash_index];
     while (curr != nullptr){
         if (key == curr->key){
+            std::cerr << "Before returning\n";
             return curr->value;
         }
         curr = curr->next;
